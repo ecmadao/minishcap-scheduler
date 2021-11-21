@@ -1,4 +1,3 @@
-import { FindCursor, WithId } from 'mongodb'
 import { config } from '../config'
 import { logger } from '../utils/logger'
 import { getRedis } from '../utils/redis'
@@ -12,7 +11,7 @@ const clean = async () => {
     const db = await getMongo(config.storage.mongo)
     const redis = getRedis()
 
-    const subscriber: FindCursor<WithId<IShortLink>> = db.collection(Collections.Urls)
+    const subscriber = db.collection<IShortLink>(Collections.Urls)
         .find<IShortLink>({
             expiredAt: {
                 $exists: true,
@@ -41,7 +40,7 @@ const clean = async () => {
 
 export const job: IScheduleJob = {
     name: 'remove expired links',
-    crontab: '* * * * * *',
+    crontab: '* */10 * * * *',
     ttlInSeconds: 10 * 60,
     task: clean,
 }
