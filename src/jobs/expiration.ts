@@ -1,10 +1,10 @@
 import { FindCursor, WithId } from 'mongodb'
+import { config } from '../config'
+import { logger } from '../utils/logger'
+import { getRedis } from '../utils/redis'
+import { IShortLink } from '../utils/models'
 import { IScheduleJob } from './interfaces'
 import { getMongo, Collections } from '../utils/mongo'
-import { getRedis } from '../utils/redis'
-import { config } from '../config'
-import { IShortLink } from '../utils/models'
-import { logger } from '../utils/logger'
 
 const AVAILABLE_IDS = 'availableIds'
 

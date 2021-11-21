@@ -1,7 +1,7 @@
 import { scheduleJob } from 'node-schedule'
+import { cache } from './utils/cache'
 import { logger } from './utils/logger'
 import { job as expirationJob } from './jobs/expiration'
-import { cache } from './utils/cache'
 
 const exec = () => {
     scheduleJob(expirationJob.name, expirationJob.crontab, async (fireDate) => {
