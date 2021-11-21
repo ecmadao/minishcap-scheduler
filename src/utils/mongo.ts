@@ -2,11 +2,10 @@ import * as mongodb from 'mongodb'
 import { config } from '../config'
 import { logger } from './logger'
 
-const instance = {}
+const instance: { [name: string]: mongodb.Db } = {}
 
 export enum Collections {
   Urls = 'urls',
-  Stat = 'stat',
 }
 
 export const getMongo = (options: { url: string, dbName: string }): Promise<mongodb.Db> => {
@@ -21,7 +20,6 @@ export const getMongo = (options: { url: string, dbName: string }): Promise<mong
         } else {
             mongodb.MongoClient.connect(
                 url,
-                { useNewUrlParser: true, useUnifiedTopology: true },
                 (err, client) => {
                     if (err) {
                         logger.error(err)
@@ -35,17 +33,4 @@ export const getMongo = (options: { url: string, dbName: string }): Promise<mong
             )
         }
     })
-}
-
-export async function initDatabaseIndexs(options: { url: string, dbName: string }) {
-    const db = await getMongo(options)
-
-    try {
-        await db.collection(Collections.Urls).createIndex(
-            { id: 1 },
-            { name: 'id', background: true, unique: true },
-        )
-    } catch (e) {
-        logger.error(e)
-    }
 }
