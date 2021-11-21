@@ -19,6 +19,7 @@
     }
   },
   "dependencies": {
+    "cache-manager": "^3.6.0",
     "ioredis": "^4.28.0",
     "joi": "^17.4.2",
     "js-yaml": "^4.1.0",
@@ -27,6 +28,7 @@
     "node-schedule": "^2.0.0"
   },
   "devDependencies": {
+    "@types/cache-manager": "^3.4.2",
     "@types/chai": "^4.1.7",
     "@types/ioredis": "^4.28.1",
     "@types/js-yaml": "^4.0.5",

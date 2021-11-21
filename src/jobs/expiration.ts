@@ -42,5 +42,6 @@ const clean = async () => {
 export const job: IScheduleJob = {
     name: 'remove expired links',
     crontab: '* * * * * *',
+    ttlInSeconds: 10 * 60,
     task: clean,
 }
