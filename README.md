@@ -1,4 +1,4 @@
-# MinishCap Scheduler
+# Minishcap Scheduler
 
 Schedule jobs for minishcap service
 
@@ -17,4 +17,4 @@ The scheduler show works with [minishcap service](https://github.com/ecmadao/min
 ### Clean expired short links
 
 If exists any expired short links, will remove them and free the short id to Redis set.
-The minishcap service will check if exists available free short id before generate a new one.
+The minishcap-service will check if there exists any available short id before generate a new one.

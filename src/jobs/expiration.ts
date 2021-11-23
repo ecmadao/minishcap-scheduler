@@ -17,7 +17,7 @@ const clean = async () => {
                 $exists: true,
                 $lte: new Date(),
             },
-        }).limit(100)
+        }).limit(1000)
 
     let hasNext = await subscriber.hasNext()
     while (hasNext) {
@@ -38,6 +38,7 @@ const clean = async () => {
     }
 }
 
+// We can inject these config into env
 export const job: IScheduleJob = {
     name: 'remove expired links',
     crontab: '* */10 * * * *',

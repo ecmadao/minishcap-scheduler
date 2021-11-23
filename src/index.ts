@@ -3,6 +3,8 @@ import { cache } from './utils/cache'
 import { logger } from './utils/logger'
 import { job as expirationJob } from './jobs/expiration'
 
+// We can load jobs by fs to avoid hard code.
+// By currently we just have one job, so it's okay for now.
 const exec = () => {
     scheduleJob(expirationJob.name, expirationJob.crontab, async (fireDate) => {
         logger.info(`[Job][${expirationJob.name}] execeed at ${fireDate}`)

@@ -1,13 +1,3 @@
-logger:
-  appenders:
-    consoleLog:
-      type: console
-  categories:
-    default:
-      appenders:
-        - consoleLog
-      level: debug
-
 storage:
   mongo:
     url: mongodb://localhost:27017/minishcap

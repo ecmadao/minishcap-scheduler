@@ -1,14 +1,14 @@
 {
   "name": "minishcap-scheduler",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "Schedule jobs for minishcap-service",
   "main": "index.js",
   "scripts": {
     "lint": "npx eslint ./src/**/*.ts",
     "lint-fix": "npx eslint ./src/**/*.ts --fix",
     "start-dev": "bnr local:app:start"
   },
-  "author": "",
+  "author": "ecmadao",
   "license": "ISC",
   "betterScripts": {
     "local:app:start": {
